@@ -1,0 +1,2 @@
+List ['hi', 'how', 'are', 'you']
+Tuple in UpperCase: ('HI', 'HOW', 'ARE', 'YOU')

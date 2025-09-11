@@ -1,0 +1,20 @@
+[
+    {
+        "id": 101,
+        "number": "12345",
+        "airline_name": "Indigo",
+        "seats": 33,
+        "price": 13000.0,
+        "source": "nanded",
+        "destination": "banglore"
+    },
+    {
+        "id": 102,
+        "number": "2345",
+        "airline_name": "StarAir",
+        "seats": 599,
+        "price": 89000.0,
+        "source": "Banglore",
+        "destination": "Hyderabad"
+    }
+]
