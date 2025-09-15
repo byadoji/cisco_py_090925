@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import pytest
 from db import repo_sql_dict as repo
 from db import db_setup
@@ -23,3 +24,30 @@ def setup():
         assert(savedEmp ['name'] == 'Dravid')
         assert(savedEmp ['salary'] == 12000)
         
+=======
+import pytest
+from db import repo_sql_dict as repo
+from db import db_setup
+
+@pytest.fixture(autouse=True)
+def setup():
+    db_setup.Base.metadata.drop_all(db_setup.engine)
+
+    #
+
+    db_setup.Base.metadata.create_all(db_setup.engine)
+    yield
+    db_setup.Base.metadata.drop_all(db_setup.engine)
+
+    def test_create_employee():
+        emp = {'id':110,'name':'Dravid','age':50,'salary':12000,'is_active':True}
+        repo.create_employee(emp)
+
+        #
+        savedEmp = repo.read_by_id(110)
+        assert(savedEmp != None)
+        assert(savedEmp['id'] == 110)
+        assert(savedEmp ['name'] == 'Dravid')
+        assert(savedEmp ['salary'] == 12000)
+        
+>>>>>>> a39d113e5de6b4b6bf55bdc5b19cdb5f807b00f4
