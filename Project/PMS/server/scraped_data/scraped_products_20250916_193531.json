@@ -1,0 +1,12 @@
+[
+    {
+        "name": "moto",
+        "qty": 1,
+        "price": 1000.0
+    },
+    {
+        "name": "vivo",
+        "qty": 2,
+        "price": 30000.0
+    }
+]
