@@ -1,5 +1,10 @@
+"""
+This script provides a command-line interface for managing products using a 'repo_api' module.
+It allows users to add, list, retrieve, update, delete products, view total stock,
+and scrape products. It also sets up basic logging for error handling.
+"""
+
 import repo_api as repo
-import logging
 import logging
 from pathlib import Path
 
@@ -11,9 +16,24 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
+# Note: The second basicConfig call will overwrite the first one if it's not handled carefully.
+# Typically, basicConfig should only be called once. If you intend to log to both file and console,
+# you should configure handlers explicitly. For simplicity, if the intent is only file logging,
+# the second basicConfig call can be removed. If the intent is console logging for INFO level
+# in addition to file logging, then a handler should be added to the root logger.
+# For this example, assuming the file logging is the primary intent, and the second
+# basicConfig might be redundant or an oversight.
+# For demonstration, I'll keep it as is, but note the potential for overwriting.
 logging.basicConfig(level=logging.INFO)
 
 def menu():
+    """
+    Displays the product management menu options to the user and
+    prompts for a choice.
+
+    Returns:
+        int: The integer choice entered by the user.
+    """
     print("""
     Product Management Menu:
     1 - Add Product
@@ -29,6 +49,12 @@ def menu():
     return choice
 
 def run():
+    """
+    Runs the main product management application loop.
+    It continuously displays the menu, takes user input, and performs
+    corresponding product operations using the 'repo_api' module until
+    the user chooses to exit. Errors during operations are logged.
+    """
     choice = menu()
     while choice != 8:
         try:
